@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MainMenu.uss?fileID=7433441132597879392&amp;guid=10f049a5e3582e14dbeb544d314b5569&amp;type=3#MainMenu" />
+    <ui:VisualElement name="Panel" class="panel" style="flex-grow: 1; align-content: auto; align-self: auto; justify-content: center;">
+        <ui:VisualElement name="mainMenu" class="menu" style="flex-grow: 0; align-self: center; flex-direction: column; display: none;">
+            <ui:Button text="Play" name="Play" style="height: 50px; width: 373px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="tutorialmenu" class="tutorialmenu" style="flex-grow: 1; visibility: visible; display: flex;">
+            <ui:Label text="Do you want to skip the tutorial?" name="tutorial-label" style="justify-content: flex-start; align-items: center; align-self: center; -unity-font-style: bold; color: rgb(255, 255, 255); font-size: 39%;" />
+            <ui:VisualElement name="yesnopanel" class="yesnopanel" style="flex-grow: 1; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; font-size: 100%; -unity-font-style: bold;">
+                <ui:Button text="NO" name="no" class="unity-button" style="font-size: 58px; width: 169px; height: 151px; transition-duration: 0.2s;" />
+                <ui:Button text="YES" name="yes" class="unity-button" style="font-size: 60px; transition-duration: 0.2s;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
