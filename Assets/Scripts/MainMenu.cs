@@ -1,50 +1,34 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+
 public class MainMenu : MonoBehaviour
 {
-    private UIDocument _document;
-    private Button _playButton;
-    private VisualElement _mainMenuScreen;
-    private VisualElement _yesnoScreen;
+    [SerializeField] private CanvasGroup mainMenuPanel;
+    [SerializeField] private CanvasGroup tutorialPanel;
 
-    private Button _noButton;
-    private Button _yesButton;
     private void Awake()
     {
-        _document = GetComponent<UIDocument>();
-        _playButton = _document.rootVisualElement.Q<Button>("Play");
-        _noButton = _document.rootVisualElement.Q<Button>("no");
-        _yesButton = _document.rootVisualElement.Q<Button>("yes");
-        _mainMenuScreen = _document.rootVisualElement.Q<VisualElement>("mainMenu");
-        _yesnoScreen = _document.rootVisualElement.Q<VisualElement>("tutorialmenu");
-        _playButton.RegisterCallback<ClickEvent>(OnPlayGameClick);
-        _noButton.RegisterCallback<ClickEvent>(StartGame);
-        _yesButton.RegisterCallback<ClickEvent>(StartTutorial);
-
-        _mainMenuScreen.style.display = DisplayStyle.Flex;
-        _yesnoScreen.style.display = DisplayStyle.None;
+        EnableOrDisableCanvasGroup(mainMenuPanel, true);
+        EnableOrDisableCanvasGroup(tutorialPanel, false);
     }
 
-    private void OnDisable()
+    private static void EnableOrDisableCanvasGroup(CanvasGroup group, bool condition)
     {
-        _playButton.UnregisterCallback<ClickEvent>(OnPlayGameClick);
+        group.alpha = condition ? 1 : 0;
+        group.interactable = condition;
+        group.blocksRaycasts = condition;
     }
 
-    private void OnPlayGameClick(ClickEvent evt)
+    public void EnableMainMenuPanel()
     {
-        _mainMenuScreen.style.display = DisplayStyle.None;
-        _yesnoScreen.style.display = DisplayStyle.Flex;
+        EnableOrDisableCanvasGroup(mainMenuPanel, true);
+        EnableOrDisableCanvasGroup(tutorialPanel, false);
     }
 
-    private void StartTutorial(ClickEvent clickEvent)
+    public void EnableTutorialPanel()
     {
-        GameManager.instance.isTutorialLevel = true;
-        _yesnoScreen.style.display = DisplayStyle.None;
+        EnableOrDisableCanvasGroup(mainMenuPanel, false);
+        EnableOrDisableCanvasGroup(tutorialPanel, true);
     }
-
-    private void StartGame(ClickEvent clickEvent)
-    {
-        GameManager.instance.isTutorialLevel = false;
-        _yesnoScreen.style.display = DisplayStyle.None;
-    }
+    
+    // TODO: Do the YES/NO tutorial UI
 }

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      vanier_plant_force_0: -7729493629047684397
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

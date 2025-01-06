@@ -2,20 +2,21 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    public SpriteRenderer outline;
-
+    private SpriteRenderer tileSprite;
+    private static Color originalColor;
     private void Awake()
     {
-        outline.gameObject.SetActive(false);
+        tileSprite = GetComponent<SpriteRenderer>();
+        originalColor = tileSprite.color;
     }
 
     private void OnMouseEnter()
     {
-        outline.gameObject.SetActive(true);
+        tileSprite.color = new Color32(150, 150, 150, 70);
     }
 
     private void OnMouseExit()
     {
-        outline.gameObject.SetActive(false);
+        tileSprite.color = originalColor;
     }
 }
