@@ -4,6 +4,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public bool isTutorialLevel = false;
+    private GameObject[] zombies;
+    private GameObject[] zombieSpawnPos;
+    
     
     private void Awake()
     {
