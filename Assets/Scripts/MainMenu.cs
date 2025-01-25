@@ -6,7 +6,6 @@ public class MainMenu : MonoBehaviour
     private Button _playButton;
     private VisualElement _mainMenuScreen;
     private VisualElement _yesnoScreen;
-
     private Button _noButton;
     private Button _yesButton;
     private void Awake()
